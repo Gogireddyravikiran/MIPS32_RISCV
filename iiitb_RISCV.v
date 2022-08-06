@@ -1,5 +1,5 @@
 `timescale 1ns / 1ps
-module iiitb_RISCV(clk,WB1_OUT,PC,EX_MEM_ALUOUT);
+module iiitb_RISCV(clk,WB1_OUT,PC);
 input clk;
 reg[31:0] IF_ID_IR;//instruction fetch stage
 
@@ -16,7 +16,7 @@ parameter SDW=3'd0,LDW=3'd1;
 parameter BEQ=3'd0;
 reg[31:0] MEM_WB_ALUOUT;//MEMORY  stage
 
-output reg [31:0] EX_MEM_ALUOUT;
+ reg [31:0] EX_MEM_ALUOUT;
 
 output reg [31:0]PC;///program counter
 reg [31:0] ID_EX_IR,EX_MEM_IR,MEM_WB_IR,WB_IR;//INSTRUCTION REGISTERS
