@@ -1,9 +1,6 @@
 # iiitb_riscv32i
 
-# Table of contents
- - [RISC-V RV32I](#1-RISC-V-RV32I)
- - [BLOCK DIAGRAM OF RISC-V RV32I](#2-BLOCK-DIAGRAM-OF-RISC-V-RV32I)
- - [INSTRUCTION SET OF RISC-V RV32I](#3-INSTRUCTION-SET-OF-RISC-V-RV32I)
- - [FUNCTIONAL SIMULATION](#4-FUNCTIONAL-SIMULATION)
- - [SYNTHESIS](#5-SYNTHESIS)
- - [GATE LEVEL SIMULATION](#6-GATE-LEVEL-SIMULATION-(GLS))
+
+# What is RISCV ? 
+###Pronounced "risk-five," RISC-V is an ISA based on reduced instruction set computer (RISC) principles. Unlike most other ISA designs, it is provided under a open source license that does not require fees to use.
+
