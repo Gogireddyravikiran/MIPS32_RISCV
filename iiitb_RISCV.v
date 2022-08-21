@@ -1,6 +1,6 @@
 `timescale 1ns / 1ps
-module iiitb_RISCV(clk,WB1_OUT,PC);
-input clk;
+module iiitb_RISCV(clk,WB1_OUT,PC,reset);
+input clk,reset;
 reg[31:0] IF_ID_IR;//instruction fetch stage
 
 reg[31:0] ID_EX_A,ID_EX_B,ID_EX_IMMEDIATE;//instruction decode
@@ -30,6 +30,25 @@ output reg[31:0]WB1_OUT;
 reg [31:0]MEM[0:31];//32*32  instruction memory
 
 reg [31:0]DM[0:31];//32*32 DATA MEMORY
+integer k;
+
+always@(posedge reset) begin
+
+for(k=0;k<32;k=k+1) begin
+	REG[k] <=k ;	
+end
+
+PC = 0;
+
+MEM[0] = 32'h00208180; //add r3,r1,r2
+MEM[1] = 32'h00218201;   //and r4,r3,r2 ---> r4=2
+MEM[2] = 32'h0020E201; //or
+MEM[3] = 32'h00520302;//STORE R6,R5(R4)
+MEM[4] = 32'h00521302;  // LOAD R6,R5(R4)
+
+MEM[5] = 32'h00F00003; // beq r2,r3,immediate(12)
+MEM[22]= 32'h00208180;//add 
+end
 
 //instruction fetch stage
 always@(posedge clk) begin
@@ -60,7 +79,7 @@ end
 
 
 //EXCECUTION STAGE START
-
+reg [31:0]ID_EX_A1;
 always@(posedge clk) begin
 
 EX_MEM_IR <=  ID_EX_IR;
