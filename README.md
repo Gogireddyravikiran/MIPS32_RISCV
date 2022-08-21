@@ -12,7 +12,7 @@ This project provides an insight into the working of a few important instruction
 ![image](https://user-images.githubusercontent.com/110079770/185805070-ec1064d6-c38b-40f9-a56c-49884f82c7bf.png)
 
 ### 3.INSTRUCTION SET OF RISC-V RV32I
-Arthimetic Instructions
+### Arthimetic Instructions
 ![image](https://user-images.githubusercontent.com/110079770/185805197-89877575-aade-4055-bc8d-e19b78aa2326.png)
 
 ### Logical Instructions
