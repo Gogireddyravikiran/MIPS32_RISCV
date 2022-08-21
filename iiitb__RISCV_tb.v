@@ -1,35 +1,20 @@
 
 module RISCV32Itb;
 
-reg clk;
+reg clk,reset;
 integer k;
 
 wire [31:0]WB1_OUT,PC;
 
-iiitb_RISCV riscv(clk,WB1_OUT,PC);
+iiitb_RISCV riscv(clk,WB1_OUT,PC,reset);
 
-initial clk=1'b1;
+initial clk=1'b0;
 
 always #10 clk=!clk;
 
-initial begin 
 
-for(k=0;k<32;k=k+1) 
-	riscv.REG[k] <=k ;
-	
-end
 initial begin
-
-riscv.PC = 0;
-
-riscv.MEM[0] = 32'h00208180; //add r3,r1,r2
-riscv.MEM[1] = 32'h00208201;   
-riscv.MEM[2] = 32'h0020E201; 
-riscv.MEM[3] = 32'h00520302;//STORE R6,R5(R4)
-riscv.MEM[4] = 32'h00521302;  // LOAD R6,R5(R4)
-
-riscv.MEM[5] = 32'h00F00003; // beq r2,r3,immediate(12)
-riscv.MEM[22]= 32'h00208180;//add 
+reset =0;#5;reset=1;#5;reset =0;
 end
 initial #1000 $finish;
 endmodule
