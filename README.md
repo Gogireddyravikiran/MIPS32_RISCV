@@ -41,4 +41,20 @@ $   sudo apt get update
 $   sudo apt get install iverilog gtkwave
 ```
 
-**To clone the repository and download the netlist files for simulation , enter the following commands in your terminal.**
+**To clone the repository and download the netlist files for simulation , enter the following commands in your terminal.*
+
+```
+$ git clone https://github.com/Gogireddyravikiran/RISCV_32I
+```
+**To simulate and run the verilog code , enter the following commands in your terminal.**
+```
+$ iverilog -o iiitb_riscv iiitb_RISCV.v iiitb_RISCV_tb.v
+$ ./iiitb_riscv
+```
+**To see the output waveform in gtkwave, enter the following commands in your terminal.**
+
+`$ gtkwave iiitb_riscv.vcd`
+
+**The output waveform in the gtkwave**
+
+ The output waveform showing the instructions performed in a 5-stage pipelined architecture.
